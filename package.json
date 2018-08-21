@@ -1,0 +1,31 @@
+{
+  "name": "mwstack",
+  "version": "0.0.0",
+  "description": "A stack of express style middleware",
+  "author": "Wes Todd <wes@wesleytodd.com>",
+  "keywords": [
+    "middleware",
+    "express",
+    "stack",
+    "http"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wesleytodd/mwstack.git"
+  },
+  "scripts": {
+    "test-node": "./test/_node-version",
+    "test-full": "npm run test-node 4 && npm run test-node 6 && npm run test-node 8 && npm run test-node 10",
+    "test": "standard && mocha",
+    "prepublushOnly": "npm t"
+  },
+  "dependencies": {
+    "array-flatten": "^2.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "standard": "^11.0.1"
+  }
+}
