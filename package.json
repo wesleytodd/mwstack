@@ -1,6 +1,6 @@
 {
   "name": "mwstack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A stack of express style middleware",
   "author": "Wes Todd <wes@wesleytodd.com>",
   "keywords": [
@@ -20,7 +20,7 @@
     "test-full": "npm run test-node 10 && npm run test-node 12 && npm run test-node 13",
     "test": "standard && mocha",
     "preversion": "npm run test-full",
-	"postpublish": "git push origin && git push origin --tags"
+    "postpublish": "git push origin && git push origin --tags"
   },
   "dependencies": {
     "array-flatten": "3.0.0"
