@@ -1,5 +1,5 @@
 'use strict'
-const flatten = require('array-flatten')
+const { flatten } = require('array-flatten')
 const slice = Array.prototype.slice
 
 // Is error symbol, can override if necessary
@@ -10,6 +10,7 @@ const Stack = module.exports.Stack = class Stack extends Array {
     super()
     arguments.length && this.infer.apply(this, slice.call(arguments))
   }
+
   use () {
     slice.call(arguments).forEach((fnc) => {
       this.push(fnc)
@@ -41,17 +42,20 @@ module.exports.FlatStack = class FlatStack extends Stack {
   constructor () {
     super(flatten(slice.call(arguments)))
   }
+
   use () {
     return super.use.apply(this, flatten(slice.call(arguments)))
   }
+
   error () {
     return super.error.apply(this, flatten(slice.call(arguments)))
   }
+
   infer () {
     return super.infer.apply(this, flatten(slice.call(arguments)))
   }
 }
 
 module.exports.isError = function (fnc) {
-  return fnc[module.exports.IS_ERROR] === true
+  return !!(fnc && fnc[module.exports.IS_ERROR] === true)
 }
